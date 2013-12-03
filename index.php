@@ -27,7 +27,7 @@
 		<h2>Le Calendar</h2>
 
 		<?php 
-			//require_once 'google-api-php-client/src/Google_Client.php';
+			//include('google-api-php-client/src/Google_Client.php');
 			//require_once 'google-api-php-client/src/contrib/Google_CalendarService.php';
 			//session_start();
 			
@@ -67,8 +67,8 @@
 			//}
 		?>
 
-		<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-		</iframe>
+	<!--	<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+		</iframe> -->
 		
 		<h3>Paragraph Element</h3>
 		
