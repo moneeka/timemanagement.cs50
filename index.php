@@ -27,8 +27,8 @@
 		<h2>Le Calendar</h2>
 
 		<?php 
-			require_once 'google-api-php-client/src/Google_Client.php';
-			require_once 'google-api-php-client/src/contrib/Google_CalendarService.php';
+			require_once 'includes/google-api-php-client/src/Google_Client.php';
+			require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
 			session_start();
 
 			$client = new Google_Client();
