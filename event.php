@@ -45,7 +45,7 @@
 
 		</div>
 
-		<form action="event.php" method="post">
+		<form action="index.php" method="post">
 		<div id="assignment">
 				<script>
 				function assignment()
