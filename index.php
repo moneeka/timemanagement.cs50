@@ -27,63 +27,7 @@
 		<h2>Le Calendar</h2>
 
 		<?php 
-			require_once 'includes/google-api-php-client/src/Google_Client.php';
-			require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
-			session_start();
 
-			$client = new Google_Client();
-			$client->setApplicationName("Time Manangement for CS50, yo");
-			
-			// Visit https://code.google.com/apis/console?api=calendar to generate your
-			// client id, client secret, and to register your redirect uri.
-			$client->setClientId('785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com');
-			$client->setClientSecret('ouORC5VnePidUCcloBeMjWVZ');
-			$client->setRedirectUri('http://localhost/timemanagement.cs50/index.php');
-			//$client->setDeveloperKey('insert_your_developer_key');
-			
-			$cal = new Google_CalendarService($client);
-			if (isset($_GET['logout'])) {
-			  	unset($_SESSION['token']);
-			}
-			
-			if (isset($_GET['code'])) {
-				$client->authenticate($_GET['code']);
-				$_SESSION['token'] = $client->getAccessToken();
-				header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-			}
-			
-			if (isset($_SESSION['token'])) {
-			  	$client->setAccessToken($_SESSION['token']);
-			}
-			
-			if ($client->getAccessToken()) {
-				/*
-				$event = new Google_Event();
-
-				$summary = "Test Event";
-				$location = "12 Prescott St, Cambridge, MA 02138";
-
-				$event->setSummary($summary);
-				$event->setLocation($location);
-	
-				$start = new Google_EventDateTime();
-				$end = new Google_EventDateTime();
-
-				$start->setDateTime('2013-12-05T10:00:00.000-07:00');
-				$end->setDateTime('2013-12-05T10:00:00.000-08:00');
-
-				$event->setStart($start);			
-				$event->setEnd($end);
-
-				$cal->events->insert('timemanagement.cs50@gmail.com', $event);
-				*/
-				
-				$_SESSION['token'] = $client->getAccessToken();
-			} 
-			else {
-			  $authUrl = $client->createAuthUrl();
-			  print "<a class='login' href='$authUrl'>Connect Me!</a>";
-			}
 
 		?>
 
