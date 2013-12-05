@@ -28,6 +28,11 @@
 
 		<div id="form">
 
+<<<<<<< HEAD
+=======
+			<form action="eventConfirmation.php" method="post">
+
+>>>>>>> 3624be90e413bd292628de8a9157bfcbe10b7b4f
 			<?php
 			
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
