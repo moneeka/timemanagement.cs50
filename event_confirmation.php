@@ -24,35 +24,32 @@
 
 		<div id="form">
 
-			<form action="eventConfirmation.php" method="post">
+			<form action="index.php" method="post">
 
 			<?php
 			
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
   				{
-       				$hours = $_POST["hours"];
-       				print $hours;
+  					$hours = $_POST["hours"];
+
+  					print("<p>Your assignment is: ". $hours. "<br>
+					Estimated number of hours needed to complete assignment: <some pseudocode><br>
+					Todays date: <some pseudocode><br>
+					Due date: <br>
+					Number of days until due date: <br>
+					Number of hours to spend on assignment each day: <br>
+					</p>");
+
         		}
 	
     			else
     			{
-    				print "<p>Nope</p>";
+    				print("<p>No Data entered</p>");
     			}
 		
     		?>
 
 			<div id="confirmation">
-
-					<p>Your assignment is: a <input type="text" id="favorite" size="20"><br>
-					Estimated number of hours needed to complete assignment: <some pseudocode><br>
-					Today's date: <some pseudocode><br>
-					Due date: <br>
-					Number of days until due date: <br>
-					Number of hours to spend on assignment each day: <br>
-					</p>
-
-
-				
 
 			<button type="submit">View Calendar</button>
 

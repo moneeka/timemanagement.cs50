@@ -28,11 +28,8 @@
 
 		<div id="form">
 
-<<<<<<< HEAD
-=======
-			<form action="eventConfirmation.php" method="post">
+			<form action="event_confirmation.php" method="post">
 
->>>>>>> 3624be90e413bd292628de8a9157bfcbe10b7b4f
 			<?php
 			
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -50,7 +47,6 @@
 
 		</div>
 
-		<form action="index.php" method="post">
 		<div id="assignment">
 				<script>
 				function assignment()
@@ -76,27 +72,35 @@
 			<br>
 			<br>
 		</div>
+
 		<div id="due date">
-		<?php 
-			echo "Select due date.";
-		?>
+
+			<?php 
+				echo "Select due date.";
+			?>
 		
 			<br>
 			<script type="text/javascript" src="http://www.snaphost.com/jquery/Calendar.aspx"></script> 
 			<br>
 			<br>
+
 		</div>
+
 		<div id="hours spent">
-		<?php 
-			echo "Input number of hours to be spent on this assignment.";
-		?>
+
+			<?php 
+				echo "Input number of hours to be spent on this assignment.";
+			?>
 			<br>
 			<input autofocus class="form-control" name="hours" placeholder="hours spent" type="text"/>
 			  	
 			<br>
 			<br>
+
 		</div>
-		<button type="submit">Quote!</button>
+
+		<button type="submit">Submit</button>
+		
 		</form> 
 		
 		<?php include('includes/sidebar.php'); ?>		
