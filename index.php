@@ -27,48 +27,48 @@
 		<h2>Le Calendar</h2>
 
 		<?php 
-			//include('google-api-php-client/src/Google_Client.php');
-			//require_once 'google-api-php-client/src/contrib/Google_CalendarService.php';
-			//session_start();
+			require_once 'google-api-php-client/src/Google_Client.php';
+			require_once 'google-api-php-client/src/contrib/Google_CalendarService.php';
+			session_start();
+
+			$client = new Google_Client();
+			$client->setApplicationName("Time Manangement for CS50, yo");
 			
-			//$client = new Google_Client();
-			//$client->setApplicationName("Google Calendar PHP Starter Application");
-			//
-			//// Visit https://code.google.com/apis/console?api=calendar to generate your
-			//// client id, client secret, and to register your redirect uri.
-			//$client->setClientId(785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com);
-			//$client->setClientSecret(ouORC5VnePidUCcloBeMjWVZ);
-			////$client->setRedirectUri('insert_your_oauth2_redirect_uri');
-			////$client->setDeveloperKey('insert_your_developer_key');
-			//$cal = new Google_CalendarService($client);
-			//if (isset($_GET['logout'])) {
-			//  unset($_SESSION['token']);
-			//}
-			//
-			//if (isset($_GET['code'])) {
-			//  $client->authenticate($_GET['code']);
-			//  $_SESSION['token'] = $client->getAccessToken();
-			//  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-			//}
-			//
-			//if (isset($_SESSION['token'])) {
-			//  $client->setAccessToken($_SESSION['token']);
-			//}
-			//
-			//if ($client->getAccessToken()) {
-			//  $calList = $cal->calendarList->listCalendarList();
-			//  print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
-			//	
-			//
-			//$_SESSION['token'] = $client->getAccessToken();
-			//} else {
-			//  $authUrl = $client->createAuthUrl();
-			//  print "<a class='login' href='$authUrl'>Connect Me!</a>";
-			//}
+			// Visit https://code.google.com/apis/console?api=calendar to generate your
+			// client id, client secret, and to register your redirect uri.
+			$client->setClientId('785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com');
+			$client->setClientSecret('ouORC5VnePidUCcloBeMjWVZ');
+			$client->setRedirectUri('http://localhost/timemanagement.cs50/index.php');
+			//$client->setDeveloperKey('insert_your_developer_key');
+			
+			$cal = new Google_CalendarService($client);
+			if (isset($_GET['logout'])) {
+			  unset($_SESSION['token']);
+			}
+			
+			if (isset($_GET['code'])) {
+			  $client->authenticate($_GET['code']);
+			  $_SESSION['token'] = $client->getAccessToken();
+			  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+			}
+			
+			if (isset($_SESSION['token'])) {
+			  $client->setAccessToken($_SESSION['token']);
+			}
+			
+			if ($client->getAccessToken()) {
+			 print "<p>MONICA IS HAWT";
+			  $_SESSION['token'] = $client->getAccessToken();
+			} 
+			else {
+			  $authUrl = $client->createAuthUrl();
+			  print "<a class='login' href='$authUrl'>Connect Me!</a>";
+			}
+
 		?>
 
-	<!--	<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-		</iframe> -->
+	<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+		</iframe> 
 		
 		<h3>Paragraph Element</h3>
 		
