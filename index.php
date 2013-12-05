@@ -43,22 +43,39 @@
 			
 			$cal = new Google_CalendarService($client);
 			if (isset($_GET['logout'])) {
-			  unset($_SESSION['token']);
+			  	unset($_SESSION['token']);
 			}
 			
 			if (isset($_GET['code'])) {
-			  $client->authenticate($_GET['code']);
-			  $_SESSION['token'] = $client->getAccessToken();
-			  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+				$client->authenticate($_GET['code']);
+				$_SESSION['token'] = $client->getAccessToken();
+				header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
 			}
 			
 			if (isset($_SESSION['token'])) {
-			  $client->setAccessToken($_SESSION['token']);
+			  	$client->setAccessToken($_SESSION['token']);
 			}
 			
 			if ($client->getAccessToken()) {
-			 print "<p>MONICA IS HAWT";
-			  $_SESSION['token'] = $client->getAccessToken();
+				print "<p>MONICA IS HAWTer</p>";
+				$event = new Google_Event();
+
+				$event->setSummary('Code event?');
+				$event->setLocation('Mah heart');
+	
+				$start = new Google_EventDateTime();
+				$end = new Google_EventDateTime();
+
+				$start->setDateTime('2013-12-05T10:00:00.000-07:00');
+				$end->setDateTime('2013-12-05T10:00:00.000-09:00');
+
+				$event->setStart($start);			
+				$event->setEnd($end);
+
+				$createdEvent =$cal->events->insert('timemanagement.cs50@gmail.com', $event);
+				
+				//print "<p>"$createdEvent->getId()"</p>";
+				$_SESSION['token'] = $client->getAccessToken();
 			} 
 			else {
 			  $authUrl = $client->createAuthUrl();
