@@ -32,7 +32,7 @@
 
 		<div id="form">
 
-			<form action="event.php" method="post">
+			<form action="eventConfirmation.php" method="post">
 
 			<?php
 			
