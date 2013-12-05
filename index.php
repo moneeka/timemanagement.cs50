@@ -57,7 +57,7 @@
 			}
 			
 			if ($client->getAccessToken()) {
-				print "<p>MONICA IS HAWTer</p>";
+				/*
 				$event = new Google_Event();
 
 				$summary = "Test Event";
@@ -76,7 +76,7 @@
 				$event->setEnd($end);
 
 				$cal->events->insert('timemanagement.cs50@gmail.com', $event);
-				
+				*/
 				
 				$_SESSION['token'] = $client->getAccessToken();
 			} 

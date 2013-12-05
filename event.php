@@ -21,22 +21,33 @@
 
 		<?php include('includes/header.php'); ?>
 		<?php include('includes/nav.php'); ?>
+
+		
 		
 		<div id="trial message">
 
-		<?php
-			echo "Monica needs to wash her hair.";
-		?>
-
-		<br>
-		<br>
 		<br>
 
 		</div> 
 
 		<div id="form">
 
-			<form action="demo_form.asp">
+			<form action="event.php" method="post">
+
+			<?php
+			
+				if ($_SERVER["REQUEST_METHOD"] == "POST")
+  				{
+       				$hours = $_POST["hours"];
+       				print $hours;
+        		}
+	
+    			else
+    			{
+    				print "<p>Nope</p>";
+    			}
+		
+    		?>
 
 			<div id="assignment">
 
@@ -89,18 +100,19 @@
 
 			<div id="hours spent">
 
+
 			<?php 
 				echo "Input number of hours to be spent on this assignment.";
 			?>
 				<br>
-				<input type="text" name="---">
+				<input autofocus class="form-control" name="hours" placeholder="hours spent" type="text"/>
 				  	
 				<br>
 				<br>
 
 			</div>
 
-			<input type="submit" value="Submit">
+			<button type="submit">Quote!</button>
 			</form> 
 
 		</div>
