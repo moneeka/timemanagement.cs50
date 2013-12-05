@@ -19,12 +19,15 @@
 
 	<div id="wrapper">
 
-		<?php include('includes/header.php'); ?>
-		<?php include('includes/nav.php'); ?>
+		<?php 
+			include('includes/header.php'); 
+			include('includes/nav.php'); 
+			require('includes/functions.php');
+		?>
 
 		<div id="form">
 
-			<form action="index.php" method="post">
+			
 
 			<?php
 			
@@ -32,17 +35,7 @@
   				{
   					$hours = $_POST["hours"];
 
-  					print("<p>Your assignment is: <br>
-					Estimated number of hours needed to complete assignment: ". $hours. "<br>
-					Todays date: 
-						<script>
-						var date=new Date();
-						document.write(date);
-						</script><br>
-					Due date: <br>
-					Number of days until due date: <br>
-					Number of hours to spend on assignment each day: <br>
-					</p>");
+  					render('event_confirmation_form.php', ["hours" => $hours]);
 
         		}
 	
@@ -52,6 +45,8 @@
     			}
 		
     		?>
+
+    		<form action="index.php" method="post">
 
 			<div id="confirmation">
 
