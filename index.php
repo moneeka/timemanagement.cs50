@@ -60,21 +60,24 @@
 				print "<p>MONICA IS HAWTer</p>";
 				$event = new Google_Event();
 
-				$event->setSummary('Code event?');
-				$event->setLocation('Mah heart');
+				$summary = "Test Event";
+				$location = "12 Prescott St, Cambridge, MA 02138";
+
+				$event->setSummary($summary);
+				$event->setLocation($location);
 	
 				$start = new Google_EventDateTime();
 				$end = new Google_EventDateTime();
 
 				$start->setDateTime('2013-12-05T10:00:00.000-07:00');
-				$end->setDateTime('2013-12-05T10:00:00.000-09:00');
+				$end->setDateTime('2013-12-05T10:00:00.000-08:00');
 
 				$event->setStart($start);			
 				$event->setEnd($end);
 
-				$createdEvent =$cal->events->insert('timemanagement.cs50@gmail.com', $event);
+				$cal->events->insert('timemanagement.cs50@gmail.com', $event);
 				
-				//print "<p>"$createdEvent->getId()"</p>";
+				
 				$_SESSION['token'] = $client->getAccessToken();
 			} 
 			else {
