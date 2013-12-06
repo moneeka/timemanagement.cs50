@@ -27,8 +27,6 @@
 
 		<div id="form">
 
-			
-
 			<?php
 			
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -92,7 +90,7 @@
 					  $authUrl = $client->createAuthUrl();
 					  print "<a class='login' href='$authUrl'>Connect Me!</a>";
 					}
-					
+
   					$hours = $_POST["hours"];
 
   					render('event_confirmation_form.php', ["hours" => $hours]);
