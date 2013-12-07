@@ -26,12 +26,7 @@
 		
 		<h2>Le Calendar</h2>
 
-		<?php 
-
-
-		?>
-
-	<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+		<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
 		</iframe> 
 		
 		<h3>Paragraph Element</h3>
