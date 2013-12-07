@@ -61,8 +61,8 @@
 
     function assignment()
     {
-        var myList=document.getElementById("myList");
-        document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text;  
+        var mylist=document.getElementById("myList");
+        document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text;
     }
 
     /**--------------------------

@@ -15,13 +15,17 @@
 
 	</head>
 
+
+
 	<body>
+
 
 		<div id="wrapper">
 
 			<?php 
 				include('includes/header.php'); 
 				include('includes/nav.php'); 
+				include('includes/sidebar.php');
 				require('includes/functions.php');
 			?>
 
@@ -57,7 +61,6 @@
 
 			</div>
 			
-			<?php include('includes/sidebar.php'); ?>		
 			<?php include('includes/footer.php'); ?>
 
 		</div> 
