@@ -2,58 +2,65 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
+	<head>
 
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="description" content="manages our time-add event page" />
-<meta name="keywords" content="time management cs50 final project" />
-<meta name="author" content="Monica Mishra" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="manages our time-add event page" />
+		<meta name="keywords" content="time management cs50 final project" />
+		<meta name="author" content="Monica Mishra" />
 
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
-<title>Plan mah lyfe CS50</title>
+		<title>Plan mah lyfe CS50</title>
 
-</head>
+	</head>
 
 	<body>
 
-	<div id="wrapper">
+		<div id="wrapper">
 
-		<?php 
-			include('includes/header.php'); 
-			include('includes/nav.php'); 
-			require('includes/functions.php');
-		?>
+			<?php 
+				include('includes/header.php'); 
+				include('includes/nav.php'); 
+				require('includes/functions.php');
+			?>
 
-		<div id="form">
+			<div id="form">
 
-			<?php
+				<?php
+				
+					// if form was submitted
+					if ($_SERVER["REQUEST_METHOD"] == "POST")
+	  				{
+
+	       				/*// if date is not valid
+	       				if (checkdate()===false)
+	       				{
+	       					
+	       					apologize("Invalid date format.");
+	       					redirect("index.php");
+	       				}*/
+
+	       				// if hours is not an integer
+	       				if (!(is_int($_POST["hours"]) || $_POST["hours"] > 1))
+	       				{
+	       					apologize("Please insert positive integer for hours.");
+	       				}
+					}
+
+	    			else
+	    			{
+	    				render('event_form.php', ["title" => "event form"]);
+	    			}
+
+	    		?>
+
+			</div>
 			
-				if ($_SERVER["REQUEST_METHOD"] == "POST")
-  				{
-       				$hours = $_POST["hours"];
-       				print $hours;
-       				$name = $_POST["name"];
-       				print $name;
-       				$type = $_POST["type"];
-       				print $type;
-        		}
-	
-    			else
-    			{
-    				render('event_form.php', ["title" => "event form"]);
-    			}
-		
-    		?>
+			<?php include('includes/sidebar.php'); ?>		
+			<?php include('includes/footer.php'); ?>
 
-		</div>
-
-
-		
-		<?php include('includes/sidebar.php'); ?>		
-		<?php include('includes/footer.php'); ?>
-
-	</div> 
+		</div> 
 
 	</body>
 
