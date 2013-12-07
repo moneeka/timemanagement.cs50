@@ -46,27 +46,32 @@
 				//$client->setDeveloperKey('insert_your_developer_key');
 				
 				$cal = new Google_CalendarService($client);
-				if (isset($_GET['logout'])) {
+				if (isset($_GET['logout'])) 
+				{
 				  	unset($_SESSION['token']);
 				}
 				
-				if (isset($_GET['code'])) {
+				if (isset($_GET['code'])) 
+				{
 					$client->authenticate($_GET['code']);
 					$_SESSION['token'] = $client->getAccessToken();
 					header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
 				}
 				
-				if (isset($_SESSION['token'])) {
+				if (isset($_SESSION['token'])) 
+				{
 				  	$client->setAccessToken($_SESSION['token']);
 				}
 				
-				if ($client->getAccessToken()) {
+				if ($client->getAccessToken()) 
+				{
 
-					for($i = 1; $i<3; $i++){
+					for($i = 0; $i<4; $i++)
+					{
 					
 					$event = new Google_Event();
 	
-					$summary = "Test Event for loops";
+					$summary = "Test Event for loops34";
 					$location = "12 Prescott St, Cambridge, MA 02138";
 	
 					$event->setSummary($summary);
@@ -75,19 +80,21 @@
 					$start = new Google_EventDateTime();
 					$end = new Google_EventDateTime();
 
-					$dateStart = "2013-12-0".$i."T13:00:00.000-07:00";
-					$dateEnd = "2013-12-0".$i."T16:00:00.000-07:00";
+					$date_start_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
+
+					$date_end_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
+
+					$date_start = date("Y-m-d", $date_start_day)."T02:00:00.000-07:00";
+					$date_end = date("Y-m-d", $date_end_day)."T16:00:00.000-07:00";
 	
-					$start->setDateTime($dateStart);
-					$end->setDateTime($dateEnd);
+					$start->setDateTime($date_start);
+					$end->setDateTime($date_end);
 
 					$start->setTimeZone('America/New_York');
 					$end->setTimeZone('America/New_York');
 	
 					$event->setStart($start);			
 					$event->setEnd($end);
-
-					//$event->setRecurrence(array('RRULE:FREQ=DAILY;UNTIL=2013-12-11T10:00:00-07:00'));
 	
 					$cal->events->insert('timemanagement.cs50@gmail.com', $event);
 
@@ -106,7 +113,7 @@
 				else 
 				{
 				  $authUrl = $client->createAuthUrl();
-				  print "<a class='login' href='$authUrl'>Connect Me!</a>";
+				  print "<a class='login' href='$authUrl'>Authorize Me, please</a>";
 				}
   		
         	}
