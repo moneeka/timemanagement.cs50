@@ -92,9 +92,11 @@
 					}
 
   					$hours = $_POST["hours"];
+  					$type = $_POST["type"];
+  					$name = $_POST["name"];
 
-  					render('event_confirmation_form.php', ["hours" => $hours]);
-
+  					render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name]);
+  			
         		}
 	
     			else

@@ -24,10 +24,6 @@
 			include('includes/nav.php'); 
 			require('includes/functions.php');
 		?>
-			
-		<div id="trial message">
-		<br>
-		</div> 
 
 		<div id="form">
 
@@ -37,6 +33,10 @@
   				{
        				$hours = $_POST["hours"];
        				print $hours;
+       				$name = $_POST["name"];
+       				print $name;
+       				$type = $_POST["type"];
+       				print $type;
         		}
 	
     			else
