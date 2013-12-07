@@ -1,6 +1,6 @@
 <?php
 
-print("<p>Your assignment is: <br>
+print("<p>Your assignment: ". $type." ". $name. "<br>
 					Estimated number of hours needed to complete assignment: ". $hours. "<br>
 					Todays date: 
 						<script>
