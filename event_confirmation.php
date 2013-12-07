@@ -23,6 +23,7 @@
 			include('includes/header.php'); 
 			include('includes/nav.php'); 
 			require('includes/functions.php');
+			include('includes/sidebar.php');
 		?>
 
 		<div id="form">
@@ -65,13 +66,13 @@
 				
 				if ($client->getAccessToken()) 
 				{
-					/*
-					for($i = 14; $i<15; $i++)
+					
+					for($i = 1; $i<2; $i++)
 					{
 					
 						$event = new Google_Event();
 		
-						$summary = "Test Event for loops34";
+						$summary = "adios";
 						$location = "12 Prescott St, Cambridge, MA 02138";
 		
 						$event->setSummary($summary);
@@ -81,17 +82,17 @@
 						$end = new Google_EventDateTime();
 	
 						$date_start_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
-	
+						$date_start_time = strtotime(date('H:i:s'));
+
 						$date_end_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
+						$date_end_time = strtotime(date('H:i:s'))+3600;
+
 	
-						$date_start = date("Y-m-d", $date_start_day)."T02:00:00.000-07:00";
-						$date_end = date("Y-m-d", $date_end_day)."T11:00:00.000-07:00";
+						$date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $date_start_time).".000-07:00";
+						$date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $date_end_time).".000-07:00";
 		
 						$start->setDateTime($date_start);
 						$end->setDateTime($date_end);
-	
-						$start->setTimeZone('America/New_York');
-						$end->setTimeZone('America/New_York');
 		
 						$event->setStart($start);			
 						$event->setEnd($end);
@@ -102,12 +103,10 @@
 		
 						$cal->events->insert('timemanagement.cs50@gmail.com', $event);
 
-					}
+					} 
 					
-					$eventList = $cal->events->listEvents("timemanagement.cs50@gmail.com");
-					foreach ($eventList as $nerd) {
-						print $nerd->end->dateTime;
-					}
+					/*$eventList = $cal->events->listEvents("timemanagement.cs50@gmail.com");
+					print $eventList[items];
 					print "<h1>event List</h1><pre>" . print_r($eventList, true) . "</pre>";
 					*/
 
@@ -148,8 +147,7 @@
 		<button type="submit">View Calendar</button>
 
 		</div>
-		
-		<?php include('includes/sidebar.php'); ?>		
+			
 		<?php include('includes/footer.php'); ?>
 
 	</div> 
