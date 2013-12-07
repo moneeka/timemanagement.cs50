@@ -24,24 +24,31 @@
 		
 		<div id="content">
 		
-		<h3>How to use <?php echo $appName ?></h3>
+		<h3>Welcome! <?php echo $appName ?></h3>
 		
 		<p>
-			Dont be dummy. Also, lol actually add the description here. heart
+			Welcome to timemanagement.cs50! Here you will find an easy tool that will help you use your time 
+			wisely and avoid missing deadlines. To begin, simply click on the "Add An Assignment" tab, fill 
+			out the short form, and click submit! 
+		</p>
+		
+		
+		<h3>How To Use</h3>
+		
+		<p> 
+			The "Home" page allows you to view your calendar. To begin planning, click on the "Add An Assignment" tab. 
+			Use the dropdown menu to select the type of assignment you wish to add to your calendar, either a paper, pset, or exam. 
+			Confirm your choice by editing the textbox below, which should autopopulate upon your selection 
+			of an option in the dropdown. Create a name for your assignment. Proceed to enter the due 
+			date for the assignment, making sure to use the valid date format mm/dd/yyyy. Input the estimated 
+			amount of time needed to complete this assignment, and click "submit".
+			
 		</p>
 		
 		<p>
-			High Life squid authentic, Pinterest four loko photo booth Schlitz meh blog kogi Intelligentsia. Occupy velit Bushwick qui sapiente Austin, cillum do selvage. YOLO next level post-ironic ea fashion axe paleo, excepteur Wes Anderson proident sartorial flannel cornhole Pitchfork. Twee messenger bag keytar pug deserunt raw denim, Williamsburg reprehenderit paleo Intelligentsia voluptate Thundercats. Nostrud fugiat keffiyeh, American Apparel small batch whatever beard. Incididunt flannel Etsy trust fund, Odd Future put a bird on it pop-up freegan pour-over typewriter ut 3 wolf moon cardigan salvia readymade. Readymade fanny pack commodo street art wayfarers sriracha XOXO cornhole nesciunt, 3 wolf moon whatever quis nulla farm-to-table drinking vinegar.
-		</p>
-		
-		<h3>Another Heading Starting Point</h3>
-		
-		<p>
-			Bushwick whatever ethnic keffiyeh, hella cray ennui seitan pop-up brunch sint ex mixtape. 3 wolf moon eu Pinterest PBR&B cred, occaecat dolore vero salvia YOLO meh church-key cillum mumblecore nulla. Sint quinoa ex, tote bag consequat consectetur try-hard Neutra American Apparel deep v. Austin McSweeney's sed, fingerstache do vinyl disrupt. Fashion axe trust fund Pinterest, DIY PBR&B direct trade eiusmod raw denim est meh. Stumptown food truck single-origin coffee, Truffaut do ennui consequat officia umami literally. Irure art party gastropub Cosby sweater fap, banh mi aesthetic pork belly.
-		</p>
-		
-		<p>
-			Farm-to-table biodiesel kale chips flannel, pork belly quis Pitchfork PBR Blue Bottle chia est actually shabby chic pickled quinoa. Stumptown Vice tofu, Brooklyn tattooed quis semiotics Carles reprehenderit direct trade sed blog messenger bag drinking vinegar. Dolore vinyl Wes Anderson tousled bitters lo-fi. Meggings voluptate eiusmod, 3 wolf moon labore craft beer pug four loko fixie hoodie vero cred. Sint culpa cray Helvetica Austin. Single-origin coffee PBR&B placeat irure qui et, adipisicing plaid banh mi mlkshk vero selfies. Single-origin coffee next level polaroid ex, lomo enim commodo sunt sartorial deep v do.
+			You will be redirected to a confirmation page, which will calculate the amount of hours you should 
+			spend on this assignment daily. Click "Connect Me!" to allow access to your Google Calendar. Click 
+			"View Calendar" to see your schedule!
 		</p>
 		
 		</div> 

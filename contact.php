@@ -27,7 +27,19 @@
 		<h3>About Me Page</h3>
 		
 		<p>
-			Call me, maybe? monicamishra@college.harvard.edu
+			Monica Mishra <br>
+				monicamishra@college.harvard.edu <br><br>
+
+				Monica is a freshman in Greenough with the prospective concentration of computer science. 
+				On campus, she is heavily involved with the Intercollegiate Model UN Team.
+		</p>
+
+		<p>
+			Angel Jin <br>
+				ajin@college.harvard.edu <br><br>
+
+				Angel is a freshman in Grays with an undecided concentration. On campus, she is heavily 
+				involved with the Intercollegiate Model UN Team. 
 		</p>
 		
 		</div> 
