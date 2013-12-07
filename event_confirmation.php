@@ -73,13 +73,19 @@
 						$start = new Google_EventDateTime();
 						$end = new Google_EventDateTime();
 		
-						$start->setDateTime('2013-12-05T10:00:00.000-07:00');
-						$end->setDateTime('2013-12-05T10:00:00.000-08:00');
+						$start->setDateTime('2013-12-07T10:00:00.000-07:00');
+						$end->setDateTime('2013-12-07T16:00:00.000-07:00');
 		
 						$event->setStart($start);			
 						$event->setEnd($end);
 		
 						$cal->events->insert('timemanagement.cs50@gmail.com', $event);
+
+						$hours = $_POST["hours"];
+  						$type = $_POST["type"];
+  						$name = $_POST["name"];
+
+  						render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name]);
 						
 						
 						$_SESSION['token'] = $client->getAccessToken();
@@ -91,11 +97,6 @@
 					  print "<a class='login' href='$authUrl'>Connect Me!</a>";
 					}
 
-  					$hours = $_POST["hours"];
-  					$type = $_POST["type"];
-  					$name = $_POST["name"];
-
-  					render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name]);
   			
         		}
 	
