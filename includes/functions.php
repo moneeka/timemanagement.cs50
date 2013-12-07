@@ -19,4 +19,10 @@
             trigger_error("Invalid template: $template", E_USER_ERROR);
         }
     }
+
+    function apologize($message)
+    {
+        render("apology.php", ["message" => $message]);
+        exit;
+    }
 ?>
