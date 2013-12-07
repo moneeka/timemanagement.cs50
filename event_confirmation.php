@@ -65,45 +65,61 @@
 				
 				if ($client->getAccessToken()) 
 				{
-
-					for($i = 0; $i<4; $i++)
+					/*
+					for($i = 14; $i<15; $i++)
 					{
 					
-					$event = new Google_Event();
-	
-					$summary = "Test Event for loops34";
-					$location = "12 Prescott St, Cambridge, MA 02138";
-	
-					$event->setSummary($summary);
-					$event->setLocation($location);
+						$event = new Google_Event();
 		
-					$start = new Google_EventDateTime();
-					$end = new Google_EventDateTime();
-
-					$date_start_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
-
-					$date_end_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
-
-					$date_start = date("Y-m-d", $date_start_day)."T02:00:00.000-07:00";
-					$date_end = date("Y-m-d", $date_end_day)."T16:00:00.000-07:00";
+						$summary = "Test Event for loops34";
+						$location = "12 Prescott St, Cambridge, MA 02138";
+		
+						$event->setSummary($summary);
+						$event->setLocation($location);
+			
+						$start = new Google_EventDateTime();
+						$end = new Google_EventDateTime();
 	
-					$start->setDateTime($date_start);
-					$end->setDateTime($date_end);
-
-					$start->setTimeZone('America/New_York');
-					$end->setTimeZone('America/New_York');
+						$date_start_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
 	
-					$event->setStart($start);			
-					$event->setEnd($end);
+						$date_end_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
 	
-					$cal->events->insert('timemanagement.cs50@gmail.com', $event);
+						$date_start = date("Y-m-d", $date_start_day)."T02:00:00.000-07:00";
+						$date_end = date("Y-m-d", $date_end_day)."T11:00:00.000-07:00";
+		
+						$start->setDateTime($date_start);
+						$end->setDateTime($date_end);
+	
+						$start->setTimeZone('America/New_York');
+						$end->setTimeZone('America/New_York');
+		
+						$event->setStart($start);			
+						$event->setEnd($end);
+	
+						
+	
+						//print "<p>".$event->getId()."</p>";
+		
+						$cal->events->insert('timemanagement.cs50@gmail.com', $event);
 
-				}
+					}
+					
+					$eventList = $cal->events->listEvents("timemanagement.cs50@gmail.com");
+					foreach ($eventList as $nerd) {
+						print $nerd->end->dateTime;
+					}
+					print "<h1>event List</h1><pre>" . print_r($eventList, true) . "</pre>";
+					*/
 
 					$hours = $_POST["hours"];
   					$type = $_POST["type"];
   					$name = $_POST["name"];
 
+  				/*	ANGEL EXAMPLE OF HOW TO TEST USER INPUTTED VALUES
+  					if($hours == 1){
+  						apologize("test message");
+  					}
+				*/
   					render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name]);
 					
 					
