@@ -9,7 +9,7 @@ print("<p>Your assignment: ". $type." ". $name. "<br>
 						document.write(date);
 						</script><br>
 					Due date: ". $due_date."<br>
-					Number of days until due date: <br>
-					Number of hours to spend on assignment each day: <br>
+					Number of days until due date: ".$number_of_days."<br>
+					Number of hours to spend on assignment each day:".$daily_event_time."<br>
 					</p>");
 ?>
