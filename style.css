@@ -2,25 +2,25 @@ body {
 background-color:#f1f1f1;
 font-family: perpetua,sans-serif;
 color:#333;
-margin:0;
-padding:0;
+margin:10px;
+padding:10px;
 }
  
 #wrapper {
 width:1030px;
 background-color:#f8f8f8;
-margin:0 auto;
-border-left:1px solid #ccc;
-border-right:1px solid #ccc;
+margin:20px auto;
+border-left:10px solid #ccc;
+border-right:10px solid #ccc;
 }
 
 #header {
 width:1030px;
 height:135px;
-margin:0 auto;
+margin:10px auto;
 margin-bottom:25px;
-border-bottom:1px solid #ccc;
-border-top:1px solid #ccc;
+border-bottom:10px solid #ccc;
+border-top:10px solid #ccc;
 }
 
 #header h2 {
@@ -34,7 +34,7 @@ padding:10px;
 #nav {
 width:1030px;
 height:40px;
-border-bottom:1px solid #ccc;
+border-bottom:10px solid #ccc;
 }
 
 #nav a {
@@ -72,7 +72,7 @@ list-style:none;
 clear:both;
 width:1030px;
 height:135px;
-border-top:1px solid #ccc;
+border-top:10px solid #ccc;
 }
 
 #footer p {
