@@ -62,14 +62,14 @@
 	  		apologize("Please insert hours.");
 	  	}
 		  // if hours is not an integer
-		  else if (!(is_int($hours) || $hours >= 0))
-		  {
-		    	apologize("Please insert positive integer for hours.");
-		  }
+		else if (!(is_int($hours) || $hours >= 0))
+		{
+		    apologize("Please insert positive integer for hours.");
+		}
       
 		  //Now that all the input is valid, we can insert the events into the calendar
 		  //Authorizing the user using Oauth 2.0
-  		require_once 'includes/google-api-php-client/src/Google_Client.php';
+  			require_once 'includes/google-api-php-client/src/Google_Client.php';
 			require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
 			session_start();
 
@@ -107,56 +107,51 @@
 			if ($client->getAccessToken()) 
 			{
 				$present = strtotime(date('Y-m-d H:i:s'));
-        $future = $present + ($hours * 3600);
-        
-        $current_day = strtotime(date("Y-m-d", $present));
-        $current_time = strtotime(date("H:i:s", $present));
 
-        
+				$start_day = strtotime(date("Y-m-d", $present));
+        		$start_time = strtotime(date("H:i:s", $present));
 
-        $number_of_days = ceil(((strtotime($due_date) - $current_time) / 86400));
-        $daily_event_time = ((float) $hours / $number_of_days) * 3600;
+				$number_of_days = ceil(((strtotime($due_date) - $start_time) / 86400));
+        		$daily_event_time = ((float) $hours / $number_of_days) * 3600;
 
-        if($daily_event_time >= 86400)
-        {
-          apologize("Not enough time to complete assignment. Enter lower estimated total time.");
-        }
-      
-        $date_start_time = $current_time;
-        $date_end_time = $current_time + $daily_event_time; 
+        		if($daily_event_time >= 86400)
+        		{
+          			apologize("Not enough time to complete assignment. Enter lower estimated total time.");
+        		}
 
-        $summary = $type." ".$name;
+        		$future = $present + $daily_event_time;
+
+        		$end_day = strtotime(date("Y-m-d", $future));
+        		$end_time = strtotime(date("H:i:s", $future));
+
+        		$summary = $type." ".$name;
         
-        for($i = 0; $i <= $number_of_days; $i++)
-        {
+        		for($i = 0; $i <= $number_of_days; $i++)
+        		{
         
-          $event = new Google_Event();
+          			$event = new Google_Event();
   
-          $event->setSummary($summary);
+          			$event->setSummary($summary);
     
-          $start = new Google_EventDateTime();
-          $end = new Google_EventDateTime();
+          			$start = new Google_EventDateTime();
+          			$end = new Google_EventDateTime();
 
-          $date_start_day = strtotime("+".$i." day", $current_day);         
-          $date_end_day = strtotime("+".$i." day", $current_day);
+          			$date_start_day = strtotime("+".$i." day", $start_day);         
+          			$date_end_day = strtotime("+".$i." day", $end_day);
 
-          $date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $date_start_time).".000-07:00";
-          $date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $date_end_time).".000-07:00";
+          			$date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $start_time).".000-07:00";
+          			$date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $end_time).".000-07:00";
   
-          $start->setDateTime($date_start);
-          $end->setDateTime($date_end);
+          			$start->setDateTime($date_start);
+          			$end->setDateTime($date_end);
   
-          $event->setStart($start);     
-          $event->setEnd($end);
+          			$event->setStart($start);     
+          			$event->setEnd($end);
   
-          //print "<p>".$event->getId()."</p>";
-          //$test_var = 'monicamishra@college.harvard.edu';
-  
-          $cal->events->insert('timemanagement.cs50@gmail.com', $event);
-        } 
-        
-        // render event_confirmation_form to display the confirmation
-        render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "due_date" => $due_date, "daily_event_time" => ($daily_event_time/3600), "number_of_days" => $number_of_days]);
+          			$cal->events->insert('timemanagement.cs50@gmail.com', $event);
+        		}         
+        		// render event_confirmation_form to display the confirmation
+        		render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "due_date" => $due_date, "daily_event_time" => ($daily_event_time/3600), "number_of_days" => $number_of_days]);
 				
 				$_SESSION['token'] = $client->getAccessToken();
 			} 
