@@ -135,6 +135,7 @@
 				$date_end_time = $current_time + $daily_event_time;	
 
 				print(date("H:i:s", $date_start_time));
+				print("<br>");
 				print(date("H:i:s", $date_end_time));	
 				$summary = $type." ".$name;
 				
