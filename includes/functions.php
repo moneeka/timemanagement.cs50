@@ -1,5 +1,6 @@
 <?php
-
+    
+    // renders templates, passing in values
 	function render($template, $values = [])
     {
         // if template exists, render it
@@ -13,13 +14,14 @@
             require("templates/$template");
         }
 
-        // else err
+        // else error
         else
         {
             trigger_error("Invalid template: $template", E_USER_ERROR);
         }
     }
 
+    // redirecting pages
     function redirect($destination)
     {
         // handle URL
@@ -50,8 +52,10 @@
         exit;
     }
 
+    // apologizes if user input is problematic
     function apologize($message)
     {
+        // renders apology.php with messages
         render("apology.php", ["message" => $message]);
         exit;
     }
@@ -59,12 +63,16 @@
 
 <script>
 
+    // autopopulates textbox with option selected from dropdown menu of assignment types
+    // code modified from http://www.w3schools.com/js/tryit.asp?filename=tryjs_putdropdown
     function assignment()
     {
         var mylist=document.getElementById("myList");
         document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text;
     }
 
+    // checks that user input of due date is valid
+    // code modified from below source
     /**--------------------------
     //* Validate Date Field script- By JavaScriptKit.com
     //* For this script and 100s more, visit http://www.javascriptkit.com

@@ -29,11 +29,12 @@
 		<div id="form">
 
 		<?php
-		//If the user submits the event form	
+
+		// if the user submits the event form	
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
   		{
 
-  		//Check the responses from the user for validity.
+  		// check the responses from the user for validity.
   			$hours = $_POST["hours"];
   			$type = $_POST["type"];
   			$name = $_POST["name"];
@@ -44,27 +45,32 @@
 	  		{
 	  			apologize("Please select type of assignment.");
 	  		}
+
 	  		// if name field is empty
 	  		else if (empty($name)) 
 	  		{
 	  			apologize("Please name your assignment.");
 	  		}
+
 	  		// if date field is empty
 	  		else if (empty($due_date)) 
 	  		{
 	  			apologize("Please insert due date.");
 	  		}
+
 	  		// if date is not valid
 		      /*	else if (checkdate((int) date("M", $date), (int) date("D", $date), (int) date("Y", $date))==false)
 		      	{
 		      	  	apologize("Please use valid date format.");
 		      	} */
+
 	  		// if hours field is empty
 	  		else if (empty($hours)) 
 	  		{
 	  			apologize("Please insert hours.");
 	  		}
-		      	// if hours is not an integer
+
+		    // if hours is not an integer
 		    else if (!(is_int($hours) || $hours > 1))
 		    {
 		      	apologize("Please insert positive integer for hours.");
@@ -157,12 +163,13 @@
   					apologize("test message");
   				}
 			*/
+  				// render event_confirmation_form
   				render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "due_date" => $due_date]);
 				
 				$_SESSION['token'] = $client->getAccessToken();
 			} 
 
-			//User is not authorized. Authorize them.
+			// user is not authorized. Authorize them.
 			else 
 			{
 				$authUrl = $client->createAuthUrl();

@@ -15,8 +15,6 @@
 
 	</head>
 
-
-
 	<body>
 
 
@@ -32,32 +30,10 @@
 			<div id="form">
 
 				<?php
-				
-					// if form was submitted
-					if ($_SERVER["REQUEST_METHOD"] == "POST")
-	  				{
 
-	       				/*// if date is not valid
-	       				if (checkdate()===false)
-	       				{
-	       					
-	       					apologize("Invalid date format.");
-	       					redirect("index.php");
-	       				}*/
-
-	       				// if hours is not an integer
-	       				if (!(is_int($_POST["hours"]) || $_POST["hours"] > 1))
-	       				{
-	       					apologize("Please insert positive integer for hours.");
-	       				}
-					}
-
-	    			else
-	    			{
-	    				render('event_form.php', ["title" => "event form"]);
-	    			}
-
-	    		?>
+					// render event_form
+					render('event_form.php', ["title" => "event form"]);
+	       		?>
 
 			</div>
 			

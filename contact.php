@@ -21,30 +21,30 @@
 
 		<?php include('includes/header.php'); ?>
 		<?php include('includes/nav.php'); ?>
+		<?php include('includes/sidebar.php'); ?>
 		
 		<div id="content">
 		
-		<h3>About Me Page</h3>
+		<h3>About Me Page</h3><br>
 		
 		<p>
-			Monica Mishra <br>
-				monicamishra@college.harvard.edu <br><br>
+			<b>Monica Mishra</b> <br>
+				<i>monicamishra@college.harvard.edu</i> <br><br>
 
 				Monica is a freshman in Greenough with the prospective concentration of computer science. 
-				On campus, she is heavily involved with the Intercollegiate Model UN Team.
+				On campus, she is heavily involved with the Intercollegiate Model UN Team. <br><br>
 		</p>
 
 		<p>
-			Angel Jin <br>
-				ajin@college.harvard.edu <br><br>
+			<b>Angel Jin</b> <br>
+				<i>ajin@college.harvard.edu</i> <br><br>
 
 				Angel is a freshman in Grays with an undecided concentration. On campus, she is heavily 
 				involved with the Intercollegiate Model UN Team. 
 		</p>
 		
 		</div> 
-		
-		<?php include('includes/sidebar.php'); ?>
+
 		<?php include('includes/footer.php'); ?>
 
 	</div> 
