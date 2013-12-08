@@ -1,5 +1,5 @@
 <div id="nav">
-
+<!-- Navigation bar content -->
 	<a href="index.php">Home</a>
 	<a href="about.php">About</a>
 	<a href="event.php">Add An Assignment</a>

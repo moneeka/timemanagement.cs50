@@ -11,7 +11,7 @@
 
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
-		<title>Plan mah lyfe CS50</title>
+		<title>Plan my life, CS50</title>
 
 	</head>
 
@@ -31,7 +31,7 @@
 
 				<?php
 
-					// render event_form
+					// render event_form. see includes/functions.php for render() code
 					render('event_form.php', ["title" => "event form"]);
 	       		?>
 

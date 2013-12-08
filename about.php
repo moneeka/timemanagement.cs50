@@ -18,14 +18,14 @@
 	<body>
 
 	<div id="wrapper">
-
+		<!-- Adding in the HTML and CSS formatting -->
 		<?php include('includes/header.php'); ?>
 		<?php include('includes/nav.php'); ?>
 		<?php include('includes/sidebar.php'); ?>
 		
 		<div id="content">
 		
-		<h3>Welcome! <?php echo $appName ?></h3>
+		<h3>Welcome to <?php echo $appName ?>!</h3>
 		
 		<p>
 			Welcome to timemanagement.cs50! Here you will find an easy and managable tool that will help you use your time 
