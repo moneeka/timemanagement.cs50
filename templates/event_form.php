@@ -3,9 +3,9 @@
 		Select your assignment:
 		<select id="myList" onchange="assignment()">
 		  <option></option>
-		  <option value="paper">paper </option>
-		  <option value="pset">pset </option>  
-		  <option value="exam">exam </option>
+		  <option value="paper">Paper </option>
+		  <option value="pset">Pset </option>  
+		  <option value="exam">Exam </option>
 		</select>
 		<p>Your assignment is: a <input autofocus class="form-control" name="type" placeholder="type of assignment" type="text" id="favorite" size="20"></p>
 		<br>

@@ -32,6 +32,13 @@
 			
 			if ($_SERVER["REQUEST_METHOD"] == "POST")
   			{
+  				
+
+  				$hours = $_POST["hours"];
+  				$type = $_POST["type"];
+  				$name = $_POST["name"];
+  				$due_date = $_POST["date"];
+
   				require_once 'includes/google-api-php-client/src/Google_Client.php';
 				require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
 				session_start();
@@ -39,12 +46,10 @@
 				$client = new Google_Client();
 				$client->setApplicationName("Time Manangement for CS50, yo");
 				
-				// Visit https://code.google.com/apis/console?api=calendar to generate your
-				// client id, client secret, and to register your redirect uri.
 				$client->setClientId('785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com');
 				$client->setClientSecret('ouORC5VnePidUCcloBeMjWVZ');
 				$client->setRedirectUri('http://localhost/timemanagement.cs50/index.php');
-				//$client->setDeveloperKey('insert_your_developer_key');
+
 				
 				$cal = new Google_CalendarService($client);
 				if (isset($_GET['logout'])) 
@@ -66,53 +71,68 @@
 				
 				if ($client->getAccessToken()) 
 				{
+					$present = strtotime(date('Y-m-d H:i:s'));
+					$current_day = strtotime(date("Y-m-d", $present));
+					$current_time = strtotime(date("H:i:s", $present));
+
 					
-					for($i = 1; $i<2; $i++)
+
+					print $present."<br>";
+					print $current_time."<br>";
+					print date("H:i:s", $present)."<br>";
+					print $current_day."<br>";
+					print date("Y-m-d", $present)."<br>";
+
+
+					$number_of_days = (strtotime($due_date) - $current_time) / 86400;
+
+					$daily_event_time = ($hours * 60 * 60) / $number_of_days;
+				
+					$date_start_time = $current_time;
+					$date_end_time = $current_time + $daily_event_time;			
+
+					$summary = $type." ".$name;
+					
+					/*for($i = 0; $i <= $number_of_days; $i++)
 					{
 					
 						$event = new Google_Event();
 		
-						$summary = "adios";
-						$location = "12 Prescott St, Cambridge, MA 02138";
-		
 						$event->setSummary($summary);
-						$event->setLocation($location);
 			
 						$start = new Google_EventDateTime();
 						$end = new Google_EventDateTime();
-	
-						$date_start_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
-						$date_start_time = strtotime(date('H:i:s'));
 
-						$date_end_day = strtotime("+".$i." day", strtotime(date('Y-m-d')));
-						$date_end_time = strtotime(date('H:i:s'))+3600;
+						$date_start_day = strtotime("+".$i." day", $current_day);
 
-	
+						print $date_start_day."<br>";
+
+						$date_end_day = strtotime("+".$i." day", $current_day);
+
+						print $date_end_day."<br>";
+
 						$date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $date_start_time).".000-07:00";
+						print $date_start."<br>";
 						$date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $date_end_time).".000-07:00";
+						print $date_end."<br>";
 		
 						$start->setDateTime($date_start);
 						$end->setDateTime($date_end);
 		
 						$event->setStart($start);			
 						$event->setEnd($end);
-	
-						
-	
+		
 						//print "<p>".$event->getId()."</p>";
+						//$test_var = 'monicamishra@college.harvard.edu';
 		
 						$cal->events->insert('timemanagement.cs50@gmail.com', $event);
 
-					} 
+					} */
 					
 					/*$eventList = $cal->events->listEvents("timemanagement.cs50@gmail.com");
 					print $eventList[items];
 					print "<h1>event List</h1><pre>" . print_r($eventList, true) . "</pre>";
 					*/
-
-					$hours = $_POST["hours"];
-  					$type = $_POST["type"];
-  					$name = $_POST["name"];
 
   				/*	ANGEL EXAMPLE OF HOW TO TEST USER INPUTTED VALUES
   					if($hours == 1){

@@ -1,2 +1,0 @@
-timemanagement.cs50
-===================

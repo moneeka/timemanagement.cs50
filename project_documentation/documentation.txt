@@ -1,0 +1,19 @@
+Project Documentation: Time Management for CS50
+
+Monica Mishra	
+monicamishra@college.harvard.edu
+TF: Rob Bowden  
+
+Angel Jin 	
+ajin@college.harvard.edu
+TF: Karen Xiao 
+
+Purpose: It is a truth universally acknowledged that the key to a successful academic career is proper time management. But how many of us actually know how to manage our time? Well never fear, because Time Management for CS50 is here! Time Management for CS50 makes academic success a reality by automatically generating a study plan catered to your academic needs, allowing you to spend more time actually studying and less time wasting on fruitlessly planning how to study. 
+
+Overview: Time Management for CS50 is built to work with Google Calendar, allowing you to customize your study plan to your schedule immediately. The home page (index.php) displays your current Google calendar. Any events that you independently add to your calendar will be visible here. 
+<insert screenshot>
+In order to add an assignment, simply click on the “Add an Assignment” tab in the upper header of the home page, or on the “Add an Assignment” link on the sidebar to the right of the webpage. This leads to the Add an Assignment page (event.php). From here, you can select your assignment from the dropdown menu (paper, problem set, exam). The text box directly underneath the dropdown entitled: “Your assignment is a: ”, should automatically fill in with the assignment type you selected from the dropdown menu. The next textbox allows you to add the specifics of the assignment, eg Pset 42, or Paper on the Rights of Man, or Exam on the Spanish-American war. Next, you can enter the date the assignment is due. Make sure to enter it in the specified MM/DD/YYYY format. Finally, the system allows you to estimate how much time in hours you believe the assignment will take you to complete. Once you’re finished, click submit to finalize your event.
+<insert screenshot>
+You should now be automatically redirected to an Assignment confirmation page (event_confirmation.php) where you should see a confirmation of your successful assignment submission. On this page, you will see the name of the assignment you entered. Under that, the number of hours you estimated this assignment would take should be displayed. Today’s date, along with the due date are also displayed. For your own reference, Time Management for CS50 also calculates the number of days you have until your assignment is due, and the amount of time you should spend on it each day. Once you have reviewed the 
+
+Necessary Software to Run the Website:

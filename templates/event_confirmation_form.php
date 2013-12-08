@@ -2,7 +2,7 @@
 
 print("<p>Your assignment: ". $type." ". $name. "<br>
 					Estimated number of hours needed to complete assignment: ". $hours. "<br>
-					Todays date: 
+					Today's date: 
 						<script>
 						var date=new Date();
 						document.write(date);

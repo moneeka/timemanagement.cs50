@@ -1,0 +1,1 @@
+Design Document: Time Management for CS50Monica Mishra	monicamishra@college.harvard.eduTF: Rob Bowden  Angel Jin 	ajin@college.harvard.eduTF: Karen Xiao 			
