@@ -17,7 +17,7 @@
 	<!--naming assignment-->
 	<div id="name">
 		<?php 
-			echo "Assignment details (eg \"The Vietnamese War\")";
+			echo "Assignment details <i>(eg \"The Vietnamese War\")</i>";
 		?>
 		<!--textbox-->
 		<input autofocus class="form-control" name="name" placeholder="name of assignment" type="text"/>  	
@@ -28,7 +28,7 @@
 	<!--inserting due date-->
 	<div id="date">
 		<?php 
-			echo "Assignment due date (mm/dd/yyyy):";
+			echo "Assignment due date <b>(mm/dd/yyyy)</b>:";
 		?>
 		<!--textbox-->
 		<input autofocus class="form-control" name="date" placeholder="due date" type="text"/>

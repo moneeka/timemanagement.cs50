@@ -1,8 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900);
 
 body {
-background-color:#f1f1f1;
+background: url(http://s.cdpn.io/3/blurry-blue.jpg);;
 font-family: perpetua,sans-serif;
+font-size: 18px;
 color:#333;
 margin:10px;
 padding:10px;
@@ -10,10 +11,11 @@ padding:10px;
  
 #wrapper {
 width:1030px;
-background-color:#f8f8f8;
+background-color: #FFFFCC;
 margin:20px auto;
 border-left:10px solid #ccc;
 border-right:10px solid #ccc;
+height: 1000px;
 }
 
 #header {
@@ -52,7 +54,7 @@ font-family: 'Cinzel Decorative', cursive;
 }
 
 #nav a:hover {
-background-color:#40B3DF;;
+background-color: #9999FF;
 height:80px;
 }
 
@@ -63,7 +65,7 @@ padding:10px;
 }
 
 #sidebar {
-width:200px;
+width:210px;
 float:right;
 margin-bottom:25px;
 }
@@ -89,4 +91,3 @@ border-top:10px solid #ccc;
 #footer p {
 padding:10px;
 }
-
