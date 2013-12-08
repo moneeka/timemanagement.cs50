@@ -107,9 +107,12 @@
 			if ($client->getAccessToken()) 
 			{
 				$present = strtotime(date('Y-m-d H:i:s'));
-        //add some add stuff
-        //$current_day = strtotime(date("Y-m-d", $present));
-        //$current_time = strtotime(date("H:i:s", $present));
+        $future = $present + ($hours * 3600);
+        
+        $current_day = strtotime(date("Y-m-d", $present));
+        $current_time = strtotime(date("H:i:s", $present));
+
+        
 
         $number_of_days = ceil(((strtotime($due_date) - $current_time) / 86400));
         $daily_event_time = ((float) $hours / $number_of_days) * 3600;
@@ -122,9 +125,6 @@
         $date_start_time = $current_time;
         $date_end_time = $current_time + $daily_event_time; 
 
-        print(date("H:i:s", $date_start_time));
-        print("<br>");
-        print(date("H:i:s", $date_end_time)); 
         $summary = $type." ".$name;
         
         for($i = 0; $i <= $number_of_days; $i++)
