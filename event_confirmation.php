@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
-<title>Plan mah lyfe CS50</title>
+<title>Plan my life, CS50</title>
 
 </head>
 
@@ -69,10 +69,10 @@
 		      	//var_dump(validateDate($_POST["date"]);
 		      	//if bool # true
 
-		      	else if (checkdate($due_date, $format)==false)
+		      /*	else if (checkdate($due_date, $format)==false)
 		      	{
 		      		apologize("test message");
-		      	}
+		      	} */
 
 	  		// if hours field is empty
 	  		else if (empty($hours)) 
