@@ -72,25 +72,32 @@
     ---------------------------**/
 
     function checkdate(input)
-    {   
-        //Basic check for format validity
+    {
+        // Basic check for format validity
         var validformat=/^\d{2}\/\d{2}\/\d{4}$/ 
         var returnval=false
-        if (!validformat.test(input.value))
+        if (!validformat.test(input.value)){
+            alert("Invalid Date Format. Please correct and submit again.")
             returnval=false
+        }
+
+        // Detailed check for valid date ranges
         else
         { 
-            //Detailed check for valid date ranges
             var monthfield=input.value.split("/")[0]
             var dayfield=input.value.split("/")[1]
             var yearfield=input.value.split("/")[2]
             var dayobj = new Date(yearfield, monthfield-1, dayfield)
-            if ((dayobj.getMonth()+1!=monthfield)||(dayobj.getDate()!=dayfield)||(dayobj.getFullYear()!=yearfield))
-            returnval=false
-            else
-            returnval=true
+            if ((dayobj.getMonth()+1!=monthfield)||(dayobj.getDate()!=dayfield)||(dayobj.getFullYear()!=yearfield)){
+                alert("Invalid Day, Month, or Year range detected. Please correct and submit again.")
+                returnval=false
+            }
+            else{
+                returnval=true
+            }
         }
-       return returnval;
+        if (returnval==false){ input.select()}
+        return returnval
     }
 
 </script>

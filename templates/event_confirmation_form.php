@@ -7,7 +7,7 @@ print("<p>Your assignment: ". $type." ". $name. "<br>
 						var date=new Date();
 						document.write(date);
 						</script><br>
-					Due date: <br>
+					Due date: ". $date."<br>
 					Number of days until due date: <br>
 					Number of hours to spend on assignment each day: <br>
 					</p>");

@@ -16,6 +16,7 @@
 <h3>Useful Resources</h3>
 	<li><a href="http://thoughtcatalog.com/">Thought Catalog</a></li>
 	<li><a href="http://www.economist.com/">The Economist</a></li>
-	<li><a href="#">The Onion</a></li>
+	<li><a href="http://www.theonion.com/">The Onion</a></li>
+	<li><a href="http://harvardicmun.org/">Harvard ICMUN</a></li>
 
 </div> 

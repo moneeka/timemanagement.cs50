@@ -4,5 +4,7 @@
 	<a href="about.php">About</a>
 	<a href="event.php">Add An Assignment</a>
 	<a href="contact.php">Contact</a>
+	<a href="Table.php">trial database</a>
 	
 </div> 
+

@@ -27,7 +27,7 @@
 		<h3>Welcome! <?php echo $appName ?></h3>
 		
 		<p>
-			Welcome to timemanagement.cs50! Here you will find an easy tool that will help you use your time 
+			Welcome to timemanagement.cs50! Here you will find an easy and managable tool that will help you use your time 
 			wisely and avoid missing deadlines. To begin, simply click on the "Add An Assignment" tab, fill 
 			out the short form, and click submit! 
 		</p>
@@ -47,7 +47,7 @@
 		
 		<p>
 			You will be redirected to a confirmation page, which will calculate the amount of hours you should 
-			spend on this assignment daily. Click "Connect Me!" to allow access to your Google Calendar. Click 
+			spend on this assignment daily. Click "Authorize Me, please" to allow access to your Google Calendar. Click 
 			"View Calendar" to see your schedule!
 		</p>
 		
