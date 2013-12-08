@@ -107,8 +107,9 @@
 			if ($client->getAccessToken()) 
 			{
 				$present = strtotime(date('Y-m-d H:i:s'));
-        $current_day = strtotime(date("Y-m-d", $present));
-        $current_time = strtotime(date("H:i:s", $present));
+        //add some add stuff
+        //$current_day = strtotime(date("Y-m-d", $present));
+        //$current_time = strtotime(date("H:i:s", $present));
 
         $number_of_days = ceil(((strtotime($due_date) - $current_time) / 86400));
         $daily_event_time = ((float) $hours / $number_of_days) * 3600;
@@ -203,14 +204,13 @@
           $client->setAccessToken($_SESSION['token']);
       }
       
-      //now the user is authenticated and entered proper inputs
-      //now we insert the events
+      //now the user has an access token and can be redirected back to add an event
       if ($client->getAccessToken()) 
       {
         print("<a href=\"event.php\">You've been authorized! Add an event!</a>");
         $_SESSION['token'] = $client->getAccessToken();
       } 
-
+      // user is not authorized. Authorize them.
       else 
       {
         $authUrl = $client->createAuthUrl();
@@ -218,8 +218,6 @@
       } 
       
     } 
-
-      // user is not authorized. Authorize them.
 
 		?>
 
