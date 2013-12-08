@@ -27,13 +27,16 @@
 				require('includes/functions.php');
 			?>
 
+			<div id="content">
+
 			<div id="form">
 
 				<?php
-
 					// render event_form. see includes/functions.php for render() code
 					render('event_form.php', ["title" => "event form"]);
 	       		?>
+
+			</div>
 
 			</div>
 			

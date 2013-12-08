@@ -27,10 +27,10 @@
 		
 		<h2>Le Calendar</h2>
 
-		// Displays the main Google Calendar for timemanagement.cs50@gmail.com
+		<!--Displays the main Google Calendar for timemanagement.cs50@gmail.com-->
 			
 		<iframe src="https://www.google.com/calendar/embed?src=timemanagement.cs50%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-		</iframe>;
+		</iframe>
 		
 		</div> 
 	

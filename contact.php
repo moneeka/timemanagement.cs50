@@ -25,7 +25,7 @@
 		
 		<div id="content">
 		
-		<h3>About Me Page</h3><br>
+		<h3>Contact us!</h3>
 		
 		<p>
 			<b>Monica Mishra</b> <br>

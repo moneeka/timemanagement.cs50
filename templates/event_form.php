@@ -11,14 +11,13 @@
 		  <option value="exam">Exam </option>
 		</select>
 		<!--autopopulating textbox-->
-		<p>Your assignment is: a <input autofocus class="form-control" name="type" placeholder="type of assignment" type="text" id="favorite" size="20"></p>
-		<br>
+		<p>Your assignment is a: <input autofocus class="form-control" name="type" placeholder="type of assignment" type="text" id="favorite" size="20"></p>
 	</div>
 
 	<!--naming assignment-->
 	<div id="name">
 		<?php 
-			echo "Create name for assignment.";
+			echo "Assignment details (eg \"The Vietnamese War\")";
 		?>
 		<!--textbox-->
 		<input autofocus class="form-control" name="name" placeholder="name of assignment" type="text"/>  	
@@ -29,12 +28,11 @@
 	<!--inserting due date-->
 	<div id="date">
 		<?php 
-			echo "Select due date.";
+			echo "Assignment due date (mm/dd/yyyy):";
 		?>
-		<br>
-		<!--dropbox-->
+		<!--textbox-->
 		<input autofocus class="form-control" name="date" placeholder="due date" type="text"/>
-		<b>Valid date format:</b> mm/dd/yyyy<br />
+		
 		<br>
 		<br>
 
@@ -42,11 +40,10 @@
 	</div>
 	<div id="hours">
 		<?php 
-			echo "Input number of hours to be spent on this assignment.";
+			echo "Estimated number of hours to be spent on this assignment:";
 		?>
-		<br>
 		<!--textbox-->
-		<input autofocus class="form-control" name="hours" placeholder="hours spent" type="text"/>	
+		<input autofocus class="form-control" name="hours" placeholder="hours estimated" type="text"/>	
 		<br>
 		<br>
 	</div>
