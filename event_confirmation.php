@@ -113,32 +113,57 @@
 					$hours = $_POST["hours"];
   					$type = $_POST["type"];
   					$name = $_POST["name"];
+  					$date = $_POST["date"];	
+	  			} 
 
-  				/*	ANGEL EXAMPLE OF HOW TO TEST USER INPUTTED VALUES
-  					if($hours == 1){
-  						apologize("test message");
-  					}
-				*/
-  					render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name]);
-					
-					
-					$_SESSION['token'] = $client->getAccessToken();
-				} 
-	
-				else 
-				{
-				  $authUrl = $client->createAuthUrl();
-				  print "<a class='login' href='$authUrl'>Authorize Me, please</a>";
-				}
+	  			// if type field is empty
+	  			if (empty($_POST["type"])) 
+	  			{
+	  				apologize("Please select type of assignment.");
+	  			}
+
+	  			// if name field is empty
+	  			else if (empty($_POST["name"])) 
+	  			{
+	  				apologize("Please name your assignment.");
+	  			}
+
+	  			// if date field is empty
+	  			else if (empty($_POST["date"])) 
+	  			{
+	  				apologize("Please insert due date.");
+	  			}
+
+	  			// if date is not valid
+		       /*	else if (checkdate((int) date("M", $date), (int) date("D", $date), (int) date("Y", $date))==false)
+		       	{
+		       	  	apologize("Please use valid date format.");
+		       	} */
+
+	  			// if hours field is empty
+	  			else if (empty($_POST["hours"])) 
+	  			{
+	  				apologize("Please insert hours.");
+	  			}
+
+		       	// if hours is not an integer
+		       	else if (!(is_int($_POST["hours"]) || $_POST["hours"] > 1))
+		       	{
+		       		apologize("Please insert positive integer for hours.");
+		       	}
+
+		       	render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "date" => $date]);
+				$_SESSION['token'] = $client->getAccessToken();
   		
         	}
 
     		else
     		{
-    			print("<p>No Data entered. <a href='index.php'>Redirect</a> </p>");
+				// more else?	
+			 	$authUrl = $client->createAuthUrl();
+			 	print "<a class='login' href='$authUrl'>Authorize Me, please</a>";
     		}
-		
-    	?>
+		?>
 
     	<form action="index.php" method="post">
 
