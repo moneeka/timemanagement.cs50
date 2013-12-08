@@ -15,7 +15,7 @@
 
 </head>
 
-	<body>
+  <body>
 
 	<div id="wrapper">
 
@@ -34,63 +34,42 @@
 
 		// if the user submits the event form	
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
-  		{
+  	{
 
   		// check the responses from the user for validity.
-  			$hours = $_POST["hours"];
-  			$type = $_POST["type"];
-  			$name = $_POST["name"];
-  			$due_date = $_POST["date"];
-
-  			// if type field is empty
-	  		if (empty($type)) 
-	  		{
-	  			apologize("Please select type of assignment.");
-	  		}
-
-	  		// if name field is empty
-	  		else if (empty($name)) 
-	  		{
-	  			apologize("Please name your assignment.");
-	  		}
-
-	  		// if date field is empty
-	  		else if (empty($due_date)) 
-	  		{
-	  			apologize("Please insert due date.");
-	  		}
-
-	  		// if date is not valid
-		    /*else if (checkdate($date_arr[0],$date_arr[1],$date_arr[2])==false)
-		      	{
-		      	  	apologize("Please use valid date format.");
-		      	} */
-
-		      	//var_dump(validateDate($_POST["date"]);
-		      	//if bool # true
-
-		      /*	else if (checkdate($due_date, $format)==false)
-		      	{
-		      		apologize("test message");
-		      	} */
-
-	  		// if hours field is empty
-	  		else if (empty($hours)) 
-	  		{
-	  			apologize("Please insert hours.");
-	  		}
-
-		    // if hours is not an integer
-		    else if (!(is_int($hours) || $hours >= 0))
-		    {
-		      	apologize("Please insert positive integer for hours.");
-		    }
-
-		    //Now that all the input is valid, we can insert the events into the calendar
-
-		    //Authorizing the user using Oauth 2.0
-
-  			require_once 'includes/google-api-php-client/src/Google_Client.php';
+  		$hours = $_POST["hours"];
+  		$type = $_POST["type"];
+  		$name = $_POST["name"];
+  		$due_date = $_POST["date"];
+  		// if type field is empty
+	  	if (empty($type)) 
+	  	{
+	  		apologize("Please select type of assignment.");
+	  	}
+	  	// if name field is empty
+	  	else if (empty($name)) 
+	  	{
+	  		apologize("Please name your assignment.");
+	  	}
+	  	// if date field is empty
+	  	else if (empty($due_date)) 
+	  	{
+	  		apologize("Please insert due date.");
+	  	}
+	  	// if hours field is empty
+	  	else if (empty($hours)) 
+	  	{
+	  		apologize("Please insert hours.");
+	  	}
+		  // if hours is not an integer
+		  else if (!(is_int($hours) || $hours >= 0))
+		  {
+		    	apologize("Please insert positive integer for hours.");
+		  }
+      
+		  //Now that all the input is valid, we can insert the events into the calendar
+		  //Authorizing the user using Oauth 2.0
+  		require_once 'includes/google-api-php-client/src/Google_Client.php';
 			require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
 			session_start();
 
@@ -100,7 +79,7 @@
 			
 			$client->setClientId('785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com');
 			$client->setClientSecret('ouORC5VnePidUCcloBeMjWVZ');
-			$client->setRedirectUri('http://localhost/timemanagement.cs50/index.php');
+			$client->setRedirectUri('http://localhost/timemanagement.cs50/event_confirmation.php');
 			
 			//$cal is the calendar being modified
 			$cal = new Google_CalendarService($client);
@@ -128,61 +107,55 @@
 			if ($client->getAccessToken()) 
 			{
 				$present = strtotime(date('Y-m-d H:i:s'));
-				$current_day = strtotime(date("Y-m-d", $present));
-				$current_time = strtotime(date("H:i:s", $present));
+        $current_day = strtotime(date("Y-m-d", $present));
+        $current_time = strtotime(date("H:i:s", $present));
 
-				$number_of_days = ceil(((strtotime($due_date) - $current_time) / 86400));
-				$daily_event_time = ((float) $hours / $number_of_days) * 3600;
+        $number_of_days = ceil(((strtotime($due_date) - $current_time) / 86400));
+        $daily_event_time = ((float) $hours / $number_of_days) * 3600;
 
-				if($daily_event_time >= 86400)
-				{
-					apologize("Not enough time to complete assignment. Enter lower estimated total time.");
-				}
-			
-				$date_start_time = $current_time;
-				$date_end_time = $current_time + $daily_event_time;	
+        if($daily_event_time >= 86400)
+        {
+          apologize("Not enough time to complete assignment. Enter lower estimated total time.");
+        }
+      
+        $date_start_time = $current_time;
+        $date_end_time = $current_time + $daily_event_time; 
 
-				print(date("H:i:s", $date_start_time));
-				print("<br>");
-				print(date("H:i:s", $date_end_time));	
-				$summary = $type." ".$name;
-				
-				for($i = 0; $i <= $number_of_days; $i++)
-				{
-				
-					$event = new Google_Event();
-	
-					$event->setSummary($summary);
-		
-					$start = new Google_EventDateTime();
-					$end = new Google_EventDateTime();
+        print(date("H:i:s", $date_start_time));
+        print("<br>");
+        print(date("H:i:s", $date_end_time)); 
+        $summary = $type." ".$name;
+        
+        for($i = 0; $i <= $number_of_days; $i++)
+        {
+        
+          $event = new Google_Event();
+  
+          $event->setSummary($summary);
+    
+          $start = new Google_EventDateTime();
+          $end = new Google_EventDateTime();
 
-					$date_start_day = strtotime("+".$i." day", $current_day);					
-					$date_end_day = strtotime("+".$i." day", $current_day);
+          $date_start_day = strtotime("+".$i." day", $current_day);         
+          $date_end_day = strtotime("+".$i." day", $current_day);
 
-					$date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $date_start_time).".000-07:00";
-					$date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $date_end_time).".000-07:00";
-	
-					$start->setDateTime($date_start);
-					$end->setDateTime($date_end);
-	
-					$event->setStart($start);			
-					$event->setEnd($end);
-	
-					//print "<p>".$event->getId()."</p>";
-					//$test_var = 'monicamishra@college.harvard.edu';
-	
-					$cal->events->insert('timemanagement.cs50@gmail.com', $event);
-				} 
-				
-				/*$eventList = $cal->events->listEvents("timemanagement.cs50@gmail.com");
-				print $eventList[items];
-				print "<h1>event List</h1><pre>" . print_r($eventList, true) . "</pre>";
-				*/
-
-  				// render event_confirmation_form to display the confirmation
-  				render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "due_date" => $due_date,
-  														"daily_event_time" => ($daily_event_time/3600), "number_of_days" => $number_of_days]);
+          $date_start = date("Y-m-d", $date_start_day)."T".date("H:i:s", $date_start_time).".000-07:00";
+          $date_end = date("Y-m-d", $date_end_day)."T".date("H:i:s", $date_end_time).".000-07:00";
+  
+          $start->setDateTime($date_start);
+          $end->setDateTime($date_end);
+  
+          $event->setStart($start);     
+          $event->setEnd($end);
+  
+          //print "<p>".$event->getId()."</p>";
+          //$test_var = 'monicamishra@college.harvard.edu';
+  
+          $cal->events->insert('timemanagement.cs50@gmail.com', $event);
+        } 
+        
+        // render event_confirmation_form to display the confirmation
+        render('event_confirmation_form.php', ["hours" => $hours,"type" => $type, "name" => $name, "due_date" => $due_date, "daily_event_time" => ($daily_event_time/3600), "number_of_days" => $number_of_days]);
 				
 				$_SESSION['token'] = $client->getAccessToken();
 			} 
@@ -191,14 +164,63 @@
 			else 
 			{
 				$authUrl = $client->createAuthUrl();
-			  	print "<a class='login' href='$authUrl'>Authorize Me, please!</a>";
+			  print "<a class='login' href='$authUrl'>Authorize Me, please!</a>";
 			}
-	  	} 
+	  } 
         
-    	else
-    	{
-		 	print "No Data Entered. How did you get here? You are a crafty user!. <br>";	
-    	}
+    else
+    {
+		 	require_once 'includes/google-api-php-client/src/Google_Client.php';
+      require_once 'includes/google-api-php-client/src/contrib/Google_CalendarService.php';
+      session_start();
+
+      //code given by google
+      $client = new Google_Client();
+      $client->setApplicationName("Time Manangement for CS50, yo");
+      
+      $client->setClientId('785571230762-gu77rjf99i6lbq49glksgnb4g0eak919.apps.googleusercontent.com');
+      $client->setClientSecret('ouORC5VnePidUCcloBeMjWVZ');
+      $client->setRedirectUri('http://localhost/timemanagement.cs50/event_confirmation.php');
+      
+      //$cal is the calendar being modified
+      $cal = new Google_CalendarService($client);
+
+      //logout function
+      if (isset($_GET['logout'])) 
+      {
+          unset($_SESSION['token']);
+      }
+      
+      if (isset($_GET['code'])) 
+      {
+        $client->authenticate($_GET['code']);
+        $_SESSION['token'] = $client->getAccessToken();
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+      }
+      
+      if (isset($_SESSION['token'])) 
+      {
+          $client->setAccessToken($_SESSION['token']);
+      }
+      
+      //now the user is authenticated and entered proper inputs
+      //now we insert the events
+      if ($client->getAccessToken()) 
+      {
+        print("<a href=\"event.php\">You've been authorized! Add an event!</a>");
+        $_SESSION['token'] = $client->getAccessToken();
+      } 
+
+      else 
+      {
+        $authUrl = $client->createAuthUrl();
+        print "<a class='login' href='$authUrl'>Authorize Me, please!</a>";
+      } 
+      
+    } 
+
+      // user is not authorized. Authorize them.
+
 		?>
 
     	<form action="index.php" method="post">

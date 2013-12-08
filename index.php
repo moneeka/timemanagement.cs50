@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
-<title>Plan mah lyfe CS50 Home</title>
+<title>Plan my life CS50 Home</title>
 
 </head>
 

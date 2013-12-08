@@ -32,6 +32,7 @@ function is_valid_date($due_date, $format = 'dd.mm.yyyy')
         } 
     } 
     return false;
+}
 
     // second function as used in event_confirmation
     else if (is_valid_date($due_date, $format)==false)
@@ -104,3 +105,20 @@ else if (checkdate($date_arr[0],$date_arr[1],$date_arr[2])==false)
 		      	{
 		      	  	apologize("Please use valid date format.");
 		      	}
+
+                
+            
+
+            // if date is not valid
+            /*else if (checkdate($date_arr[0],$date_arr[1],$date_arr[2])==false)
+                {
+                    apologize("Please use valid date format.");
+                } */
+
+                //var_dump(validateDate($_POST["date"]);
+                //if bool # true
+
+              /*    else if (checkdate($due_date, $format)==false)
+                {
+                    apologize("test message");
+                } */
