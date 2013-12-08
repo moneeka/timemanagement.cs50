@@ -1,5 +1,6 @@
 <?php
 
+// get current date code adapted from http://www.w3schools.com/js/js_obj_date.asp
 print("<p>Your assignment: ". $type." ". $name. "<br>
 					Estimated number of hours needed to complete assignment: ". $hours. "<br>
 					Today's date: 

@@ -1,3 +1,5 @@
+<!--code from CS50 spec-->
+
 <p class="lead text-danger">
     Sorry!
 </p>
