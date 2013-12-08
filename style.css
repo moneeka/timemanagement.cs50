@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900);
+
 body {
 background-color:#f1f1f1;
 font-family: perpetua,sans-serif;
@@ -21,26 +23,32 @@ margin:10px auto;
 margin-bottom:25px;
 border-bottom:10px solid #ccc;
 border-top:10px solid #ccc;
+font-family: 'Cinzel Decorative', cursive;
 }
 
 #header h2 {
 padding:10px;
+font-family: 'Cinzel Decorative', cursive;
 }
 
 #header h3 {
 padding:10px;
+font-family: 'Cinzel Decorative', cursive;
 }
 
 #nav {
 width:1030px;
 height:40px;
 border-bottom:10px solid #ccc;
+font-family: 'Cinzel Decorative', cursive;
 }
 
 #nav a {
 padding:10px;
 text-decoration:none;
 background-color:#f1f1f1;
+font-family: 'Cinzel Decorative', cursive;
+
 }
 
 #nav a:hover {
@@ -62,6 +70,9 @@ margin-bottom:25px;
 
 #sidebar a {
 text-decoration:none;
+font-family: 'Cinzel Decorative', cursive;
+
+
 }
 
 #sidebar li {
